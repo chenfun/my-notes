@@ -1,0 +1,16 @@
+<ul>
+  <% @events.each do |event| %>
+      <li>
+        <%= event.name %>
+        <%= link_to '查看', event_path(event), :class => "gps"%>
+        <%= link_to '編輯', edit_event_path(event) %>
+        <%= link_to '刪除', event_path(event), :method => :delete %>
+        <%= link_to 'XML', event_path(event, :format => :xml), :target => '_blank'%>
+        <%= link_to 'JSON', event_path(event, :format => :json), :target => '_blank'%>
+      </li>
+  <% end %>
+</ul>
+<%= link_to '新增', new_event_path %>
+<div class="pagination">
+  <%= paginate @events %>
+</div>
