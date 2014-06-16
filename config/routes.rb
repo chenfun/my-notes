@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   # get 'events/index'
-
+  resources :events
   root 'events#index'
 
+  #match '/meetings' => 'events#index', :as => "meetings"
   # match '/:controller(/:action(/:id))'
 
-  resources :events
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

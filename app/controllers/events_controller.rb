@@ -6,6 +6,9 @@ class EventsController < ApplicationController
     # @events = Event.all
     @events = Event.page(params[:page]).per(5)
 
+
+    session[:eve] = 'play baseball'
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @events.to_xml }
@@ -17,6 +20,9 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+
+    flash[:alert] = session[:eve]
+    # flash[:alert] = "event2 is #{@event2.name} , desc  is ==> #{@event.description}"
   end
 
   def create
